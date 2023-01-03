@@ -42,17 +42,19 @@ const Interten: NextPage<IProps> = ({data}) => {
 
   if (!data.length) return null;
 
-  const rows = useMemo(() => {
-    return data.map(
-      ({userName, price, email, password, provider, userId, date}) =>
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const rows = useMemo(
+    () =>
+      data.map(({userName, price, provider, date}) =>
         createData({
           userName,
           provider,
           price: `${price} грн`,
           date: dayjs(date).format('HH:mm - DD/MM/YYYY'),
         })
-    );
-  }, [data]);
+      ),
+    [data]
+  );
 
   return (
     <Box>

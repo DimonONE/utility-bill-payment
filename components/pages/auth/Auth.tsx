@@ -104,7 +104,7 @@ const Auth: React.FC<IProps> = props => {
       >
         {!isAuth ? (
           <FormControl sx={{margin: '10px 0', maxWidth: '300px'}}>
-            <InputLabel htmlFor="my-name">Ім'я</InputLabel>
+            <InputLabel htmlFor="my-name">{"Ім'я"}</InputLabel>
             <Input
               id="name"
               value={data.name}
@@ -112,7 +112,7 @@ const Auth: React.FC<IProps> = props => {
               aria-describedby="my-helper-text"
             />
             <FormHelperText id="my-helper-text">
-              Введіть ваше ім'я.
+              Введіть ваше {"ім'я"}.
             </FormHelperText>
           </FormControl>
         ) : null}
