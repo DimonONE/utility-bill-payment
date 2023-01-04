@@ -37,7 +37,7 @@ const columns = [
   {key: 4, name: 'Дата'},
 ];
 
-const Interten: NextPage<IProps> = ({data}) => {
+const Internet: NextPage<IProps> = ({data}) => {
   console.log('data', data);
 
   if (!data.length) return null;
@@ -67,11 +67,11 @@ const Interten: NextPage<IProps> = ({data}) => {
   );
 };
 
-Interten.getInitialProps = async (ctx: any) => {
+Internet.getInitialProps = async (ctx: any) => {
   const {query} = ctx;
   const res = await axios.get(`${API_URL}/internet?userId=${query?.userId}`);
 
   return {data: [res.data.data][0]};
 };
 
-export default Interten;
+export default Internet;

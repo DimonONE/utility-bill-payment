@@ -69,7 +69,7 @@ const Auth: React.FC<IProps> = props => {
         localStorage.setItem('userId', _id);
         localStorage.setItem('userName', name);
 
-        router.push(`/interten?userId=${_id}`);
+        router.push(`/internet?userId=${_id}`);
       }
     }
   };
