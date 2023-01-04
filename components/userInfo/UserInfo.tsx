@@ -8,12 +8,18 @@ import Link from 'next/link';
 import Avatar from '@mui/material/Avatar';
 import {useGlobalState} from '@root/context/state';
 import {Button} from '@mui/material';
+import {useRouter} from 'next/router';
 
 type IProps = {};
 
 const UserInfo: NextPage<IProps> = () => {
   const [userName] = useGlobalState('userName');
+  const router = useRouter();
 
+  const logout = () => {
+    localStorage.clear();
+    router.reload();
+  };
   return (
     <Box
       sx={{
@@ -35,7 +41,9 @@ const UserInfo: NextPage<IProps> = () => {
             <Avatar alt={userName} src="" />
             <Typography sx={{marginLeft: '10px'}}>{userName}</Typography>
           </Box>
-          <Button onClick={() => localStorage.clear()}>Вийти</Button>
+          <Button sx={{marginTop: '5px'}} onClick={logout}>
+            Вийти
+          </Button>
         </Box>
       ) : (
         <Box
