@@ -7,6 +7,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import Avatar from '@mui/material/Avatar';
 import {useGlobalState} from '@root/context/state';
+import {Button} from '@mui/material';
 
 type IProps = {};
 
@@ -24,9 +25,17 @@ const UserInfo: NextPage<IProps> = () => {
       }}
     >
       {!!userName ? (
-        <Box sx={{display: 'flex', alignItems: 'center'}}>
-          <Avatar alt={userName} src="" />
-          <Typography sx={{marginLeft: '10px'}}>{userName}</Typography>
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Box sx={{display: 'flex', alignItems: 'center'}}>
+            <Avatar alt={userName} src="" />
+            <Typography sx={{marginLeft: '10px'}}>{userName}</Typography>
+          </Box>
+          <Button onClick={() => localStorage.clear()}>Вийти</Button>
         </Box>
       ) : (
         <Box
